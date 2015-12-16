@@ -2,6 +2,9 @@
 js and php app to generate json-ld snippets (currently limited to one additionalType)
 
 This small PHP and javascript app was created to make it easier to produce JSON-LD snippets that can be put on to your website.
+Why
+---
+Copy and pasting into a text file is error prone, I cannot tell you how many times I've made an error, and had to go back and fix the problem. This little app will help avoid that.
 
 here is an example of what is produced.
 ```
@@ -38,3 +41,6 @@ Usage
 -----
 
 install onto a web server that supports PHP and open the json-ld.php file in a browser.
+
+The page will show a regular form to accept the fields that can be changed. Just type into the form and hit the submit button, you will get instant results.
+

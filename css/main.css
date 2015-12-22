@@ -84,8 +84,15 @@ form textarea {
     height: 90px;
 }
 
-
-
+.daysdiv label {
+    margin-right:9px;
+}
+.hourdiv {
+    width: 50%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 5px;
+}
 
 
 

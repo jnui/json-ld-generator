@@ -28,11 +28,12 @@
 <p>Create json-ld snippet for flooring location</p>
 <div id="main">
 	<form method="get" action="process-ld.php">
-		<input type="text" id="name" name="name" placeholder="Dealer name">
+		<input type="text" id="name" name="name" placeholder="Business name">
 		<input type="text" id="address" name="address" placeholder="address">
-		<input type="text" id="zip" name="zip" placeholder="zip">
 		<input type="text" id="city" name="city" placeholder="city">
 		<input type="text" id="state" name="state" placeholder="state code">
+		<input type="text" id="zip" name="zip" placeholder="zip">
+		<span class="coord" style="display:none;padding:3px;border:1px solid #cccccc;background-color:#eee;cursor: pointer;">fill co-ordinates</span>
 		<input type="text" id="phone" name="phone" placeholder="phone">
 		<input type="text" id="email" name="email" placeholder="email">
 		<input type="text" id="url" name="url" placeholder="url">
@@ -40,19 +41,34 @@
 		<textarea id="description" name="description" placeholder="description"></textarea>
 		<input type="text" id="lat" name="lat" placeholder="lat">
 		<input type="text" id="long" name="long" placeholder="long">
-		<input type="text" id="hours" name="hours" placeholder="hours">
+		<select id="hour-ranges" style="display:block;">
+			<option value="0" selected>Choose number of opening hour ranges</option>
+			<option value="1">1 range of opening hours</option>
+			<option value="2">2 ranges of opening hours</option>
+			<option value="3">3 ranges of opening hours</option>
+			<option value="4">4 ranges of opening hours</option>
+			<option value="5">5 ranges of opening hours</option>
+			<option value="6">6 ranges of opening hours</option>
+			<option value="7">7 ranges of opening hours</option>
+		</select>
+
+
 		<input type="text" id="map" name="map" placeholder="map url">
 		<input type="text" id="sameas1" name="sameas1" placeholder="social media url 1">
-		<input type="submit" id="formButton" value="get json-ld" name="submit">
+		<input type="submit" id="formButton" value="generate json-ld" name="submit">
+		<p>Fill out this form and click the button- you can click the generate button any time, even if the form is empty. </p>
 	</form>
 	<div id="preSurround">
-		<a id="copybutton" href="#">copy</a>
+		<p>put the following code on your website, or location page</p>
+		<a id="copybutton" href="#">copy code to clipboard</a>
 		<pre id="jsonFormat">
 
 		</pre>
 	</div>
 </div>
-created by <a href="http://www.niumata.com">John Niumata Local SEO expert Florida</a>
+<p>check the code at google's tool <a href="https://developers.google.com/structured-data/testing-tool" target="_blank">http://developers.google.com/structured-data/testing-tool/</a></p>
+<p>created by <a href="http://www.niumata.com">John Niumata Local SEO Palm Beach County FL</a></p>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 

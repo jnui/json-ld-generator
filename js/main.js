@@ -7,7 +7,9 @@ var jld = ( function( window, undefined ) {
 	var outputDiv = $('#jsonFormat');
 
 	function populateJson(data) {
-		$(outputDiv).html(data);
+		var pre = "&lt;script type='application/ld+json'&gt;\n";
+		var aft = "\n&lt;/script&gt;";
+		$(outputDiv).html(pre + data + aft);
 	}
 
 	function getMyJson() {
@@ -37,11 +39,37 @@ var jld = ( function( window, undefined ) {
 		$temp.remove();
 	}
 
+	function addDateRange(id){
+
+		var daystr = '<div class="daysdiv days'+ id + '" style=""><label><input type="checkbox" class="Mon" name="range' + id + '[]" value="Monday">Mon</label>';
+		daystr += '<label><input type="checkbox" class="Tue" name="range' + id + '[]" value="Tuesday">Tue</label>';
+		daystr += '<label><input type="checkbox" class="wed" name="range' + id + '[]"  value="Wednesday">Wed</label>';
+		daystr += '<label><input type="checkbox" class="Thu"  name="range' + id + '[]" value="Thursday">Thu</label>';
+		daystr += '<label><input type="checkbox" class="Fri" name="range' + id + '[]"  value="Friday">Fri</label>';
+		daystr += '<label><input type="checkbox" class="Sat" name="range' + id + '[]"  value="Saturday">Sat</label>';
+		daystr += '<label><input type="checkbox" class="Sun" name="range' + id + '[]"  value="Sunday">Sun</label>';
+		daystr += '</div>';
+
+		$('#hour-ranges').after(daystr);
+		addHours(id);
+	}
+
+	function addHours(id){
+		var hourStr = '<div class="hourdiv hour' + id + '">';
+		hourStr += '<label>Open:<input type="text" class="openhour" name="open' + id + '" style="width:85px;"  size="20" value="09:00" placeholder="Opening Time"></label>';
+		hourStr += '<label>Close:<input type="text" name="close' + id + '" size="20" style="width:85px;"  value="17:00" placeholder="Closing Time"></label>';
+		hourStr += '</div>';
+
+		$('.days' + id).after(hourStr);
+	}
+
+
 	// explicitly return public methods when this object is instantiated
 	return {
 		populateJson : populateJson,
 		processForm : processForm,
-		copyIt : copyIt
+		copyIt : copyIt,
+		addDateRange: addDateRange
 	};
 
 } )( window );
@@ -62,5 +90,42 @@ $(document).ready(function(){
 	$('#copybutton').on('click', function(e){
 		jld.copyIt('#jsonFormat');
 	});
+
+	$('#hour-ranges').on('change', function(e){
+		var numberOfRanges = $(this).val();
+		$('.daysdiv').remove();
+		$('.hourdiv').remove();
+		if(numberOfRanges > 0){
+			while (numberOfRanges > 0) {
+				jld.addDateRange(numberOfRanges);
+				numberOfRanges = numberOfRanges -1;
+			}
+		}
+
+	});
+
+	$('form :input').change(function(){
+		if ($("#address:empty,#city:empty,#state:empty,#zip:empty").filter(function() { return $(this).val(); }).length == 4) {
+			$('.coord').css('display','inline-block');
+		}
+	});
+
+	$('.coord').on('click', function(){
+		var geoUrl = 'http://maps.google.com/maps/api/geocode/json?address=',
+			$addr = $('#address').val(),
+			$city = $('#city').val(),
+			$state = $('#state').val(),
+			$zip = $('#zip').val(),
+			suffix = '&sensor=false',
+			sp = '+';
+
+		$.ajax({
+			url     : geoUrl + $addr + sp + $city + sp + $state + sp + $zip + suffix ,
+			type    : 'GET',
+			success : function( response ) {
+				$('#lat').val(response.results[0].geometry.location.lat);
+				$('#long').val(response.results[0].geometry.location.lng);
+			}
+		});
+	});
 });
-jld.myMethod();

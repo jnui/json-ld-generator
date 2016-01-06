@@ -33,6 +33,7 @@
 		<input type="text" id="city" name="city" placeholder="city">
 		<input type="text" id="state" name="state" placeholder="state code">
 		<input type="text" id="zip" name="zip" placeholder="zip">
+		<input type="text" id="country" name="country" placeholder="Country Code 2 Letters e.g. US">
 		<span class="coord" style="display:none;padding:3px;border:1px solid #cccccc;background-color:#eee;cursor: pointer;">fill co-ordinates</span>
 		<input type="text" id="phone" name="phone" placeholder="phone">
 		<input type="text" id="email" name="email" placeholder="email">

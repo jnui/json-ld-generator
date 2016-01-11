@@ -106,7 +106,7 @@ $(document).ready(function(){
 
 	$('form :input').change(function(){
 		if ($("#address:empty,#city:empty,#state:empty,#zip:empty").filter(function() { return $(this).val(); }).length == 4) {
-			$('.coord').css('display','inline-block');
+			$('.coord').css('display','block');
 		}
 	});
 

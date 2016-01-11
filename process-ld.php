@@ -22,7 +22,7 @@ $name = $_GET["name"];
 $phone = $_GET["phone"];
 $lat = $_GET["lat"];
 $long = $_GET["long"];
-$sameAs1 = $_GET["sameas1"];
+//$sameAs1 = $_GET["sameas1"];
 $hasmap = $_GET["map"];
 $hoursString = "[";
 
@@ -125,8 +125,8 @@ $jsonString .= "  \"geo\": {". PHP_EOL;
 $jsonString .= "      \"@type\": \"GeoCoordinates\",". PHP_EOL;
 $jsonString .= "      \"latitude\": ". $quotes . $lat .$quotesComma. PHP_EOL;
 $jsonString .= "      \"longitude\": ". $quotes . $long .$quotes. PHP_EOL;
-$jsonString .= "    },". PHP_EOL;
-$jsonString .= "  \"sameAs\" : [ ". $quotes . $sameAs1 .$quotes . "]". PHP_EOL;
+$jsonString .= "    }". PHP_EOL;
+//$jsonString .= "  \"sameAs\" : [ ". $quotes . $sameAs1 .$quotes . "]". PHP_EOL;
 
 
 $jsonString .= "}" . PHP_EOL;

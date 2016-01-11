@@ -34,12 +34,13 @@
 		<input type="text" id="state" name="state" placeholder="state code">
 		<input type="text" id="zip" name="zip" placeholder="zip">
 		<input type="text" id="country" name="country" placeholder="Country Code 2 Letters e.g. US">
-		<span class="coord" style="display:none;padding:3px;border:1px solid #cccccc;background-color:#eee;cursor: pointer;">fill co-ordinates</span>
+
 		<input type="text" id="phone" name="phone" placeholder="phone">
 		<input type="text" id="email" name="email" placeholder="email">
 		<input type="text" id="url" name="url" placeholder="url">
 		<input type="text" id="logo" name="logo" placeholder="logo url">
 		<textarea id="description" name="description" placeholder="description"></textarea>
+		<span class="coord" style="display:none;padding:3px;border:1px solid #cccccc;background-color:#eee;cursor: pointer; margin: 0 auto; width: 30%;">fill co-ordinates</span>
 		<input type="text" id="lat" name="lat" placeholder="lat">
 		<input type="text" id="long" name="long" placeholder="long">
 		<select id="hour-ranges" style="display:block;">
@@ -55,12 +56,12 @@
 
 
 		<input type="text" id="map" name="map" placeholder="map url">
-		<input type="text" id="sameas1" name="sameas1" placeholder="social media url 1">
+		<!-- <input type="text" id="sameas1" name="sameas1" placeholder="social media url 1"> -->
 		<input type="submit" id="formButton" value="generate json-ld" name="submit">
-		<p>Fill out this form and click the button- you can click the generate button any time, even if the form is empty. </p>
+		<p class="form-instructions">Fill out this form and click the button- you can click the generate button any time, even if the form is empty. </p>
 	</form>
 	<div id="preSurround">
-		<p>put the following code on your website, or location page</p>
+		<p>put the following code on your website, or location page inside the body tags</p>
 		<a id="copybutton" href="#">copy code to clipboard</a>
 		<pre id="jsonFormat">
 

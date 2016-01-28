@@ -63,13 +63,21 @@ var jld = ( function( window, undefined ) {
 		$('.days' + id).after(hourStr);
 	}
 
+	function addSameAs(id){
+		var linkStr = '<div class="linkDiv hour' + id + '">';
+		linkStr += '<label><input type="text" class="sameLink" name="link' + id + '" placeholder="Social Media URL"></label>';
+		linkStr += '</div>';
+		$('#sameas').after(linkStr);
+	}
+
 
 	// explicitly return public methods when this object is instantiated
 	return {
 		populateJson : populateJson,
 		processForm : processForm,
 		copyIt : copyIt,
-		addDateRange: addDateRange
+		addDateRange: addDateRange,
+		addLinks: addSameAs
 	};
 
 } )( window );
@@ -102,6 +110,17 @@ $(document).ready(function(){
 			}
 		}
 
+	});
+
+	$('#sameas').on('change', function(e){
+		var numberOfLinks = $(this).val();
+		$('.sameLink').remove();
+		if(numberOfLinks > 0) {
+			while (numberOfLinks > 0){
+				jld.addLinks(numberOfLinks);
+				numberOfLinks = numberOfLinks -1;
+			}
+		}
 	});
 
 	$('form :input').change(function(){

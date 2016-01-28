@@ -62,10 +62,12 @@ textarea {
 body {
     margin: 20px;
     background-color: #ccc;
+    text-align: center;
 }
 
 #main {
     height: 500px;
+    text-align:left;
 }
 
 #main #preSurround, #main form {
@@ -74,6 +76,15 @@ body {
 }
 #copybutton {
     clear: both;
+}
+.notes {
+    border-bottom: 1px solid #777;
+    clear:both;
+    display: table;
+}
+.instructions {
+    display:table-cell;
+    width: 45%;
 }
 form {
     text-align: center;
@@ -89,7 +100,9 @@ input[type=submit]{
     display:block;
     margin:10px auto;
     clear:both;
-
+    background-color: orange;
+    padding:14px;
+    padding:14px;
 }
 select {
     margin: 10px auto;
@@ -115,6 +128,16 @@ form textarea {
     border: 1px solid black;
     padding: 10px;
     background-color: #F6F6D7;
+}
+.nodecoration {
+    text-decoration: none;
+    color: black
+}
+.footer {
+    font-size:12px;
+    position:fixed;
+    bottom: 0px;
+    right: 10px;
 }
 
 

@@ -9,6 +9,7 @@ $quotes = "\"";
 $quotesComma = "\",";
 $jsonString = "";
 
+$additionalType = $_GET["additional"];
 $url = $_GET["url"];
 $logo = $_GET["logo"];
 $email = $_GET["email"];
@@ -25,6 +26,48 @@ $long = $_GET["long"];
 //$sameAs1 = $_GET["sameas1"];
 $hasmap = $_GET["map"];
 $hoursString = "[";
+$hasSameAsLinks = false;
+$sameAsString = "";
+if(isset($_GET['link1'])){
+	$link1 = $_GET['link1'];
+	if(strlen($link1) > 0) {
+		$sameAsString .= "\"" . $link1 . "\"";
+		$hasSameAsLinks = true;
+	}
+}
+if(isset($_GET['link2'])){
+	$link2 = $_GET['link2'];
+	if(strlen($link2) > 0) {
+		$sameAsString .= ",\"". $link2 . "\"";
+		$hasSameAsLinks = true;
+	}
+}
+if(isset($_GET['link3'])){
+	$link3 = $_GET['link3'];
+	if(strlen($link3) > 0) {
+		$sameAsString .= ",\"". $link3 . "\"";
+		$hasSameAsLinks = true;
+	}
+}
+if(isset($_GET['link4'])){
+	$link4 = $_GET['link4'];
+	if(strlen($link4) > 0) {
+		$sameAsString .= ",\"".$link4 . "\"";
+		$hasSameAsLinks = true;
+	}
+}
+if(isset($_GET['link5'])){
+	$link5 = $_GET['link5'];
+	if(strlen($link5) > 0) {
+		$sameAsString .= ",\"". $link5 . "\"";
+		$hasSameAsLinks = true;
+	}
+}
+if($hasSameAsLinks) {
+	$sameAsComma = ",";
+} else {
+	$sameAsComma = "";
+}
 
 
 function addRange( $range, $id){
@@ -104,7 +147,7 @@ $hoursString .= "]";
 $jsonString .= "{" . PHP_EOL;
 $jsonString .= "  \"@context\": \"http://schema.org\"," . PHP_EOL;
 $jsonString .= "  \"@type\": \"Store\",". PHP_EOL;
-$jsonString .= "  \"additionalType\": \"http://www.productontology.org/id/Flooring\",". PHP_EOL;
+$jsonString .= "  \"additionalType\": \"" . $additionalType ."\",". PHP_EOL;
 $jsonString .= "  \"url\": ". $quotes . $url .$quotesComma. PHP_EOL;
 $jsonString .= "  \"logo\": " . $quotes . $logo .$quotesComma. PHP_EOL;
 $jsonString .= "  \"hasMap\": ". $quotes . $hasmap .$quotesComma. PHP_EOL;
@@ -125,8 +168,8 @@ $jsonString .= "  \"geo\": {". PHP_EOL;
 $jsonString .= "      \"@type\": \"GeoCoordinates\",". PHP_EOL;
 $jsonString .= "      \"latitude\": ". $quotes . $lat .$quotesComma. PHP_EOL;
 $jsonString .= "      \"longitude\": ". $quotes . $long .$quotes. PHP_EOL;
-$jsonString .= "    }". PHP_EOL;
-//$jsonString .= "  \"sameAs\" : [ ". $quotes . $sameAs1 .$quotes . "]". PHP_EOL;
+$jsonString .= "    }". $sameAsComma . PHP_EOL;
+$jsonString .= "  \"sameAs\" : [ ". $sameAsString . "]". PHP_EOL;
 
 
 $jsonString .= "}" . PHP_EOL;

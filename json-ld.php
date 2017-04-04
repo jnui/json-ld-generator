@@ -12,7 +12,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Free Json-LD generator for a store - Flooring digital agency</title>
+	<title>Free Json-LD generator for a physical store - Flooring digital agency</title>
 	<meta name="description" content="This free tool creates json-ld code snippets for physical stores, in particular flooring stores. Includes open hours, same as, automatic coordinate retrieval. Floorforce is a digital agency for the flooring industry.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,14 +23,25 @@
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<script>window.html5 || document.write('<script src="../js/vendor/html5shiv.js"><\/script>')</script>
 	<![endif]-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-73026358-1', 'auto');
+		ga('send', 'pageview');
+
+	</script>
 </head>
 <body>
-<h1>Free json-ld schema generator for a store location - compliments of <a href="http://www.floorforce.com">Floorforce</a></h1>
+<h1>Free json-ld schema generator for a store location local SEO marketing - compliments of <a href="http://www.floorforce.com">Floorforce</a></h1>
 <div id="main">
 	<div class="notes">
 	<div class="instructions">
 		<h2>about this Json-ld schema generator</h2>
-		<p>Floorforce does alot of local SEO work for local flooring stores, we really like the new JSON-LD schema format, and so we created this tool to make it easier to create the script snippets for our customers. </p>
+		<p>Floorforce does a lot of local SEO work for local flooring stores, we really like the new JSON-LD schema format, and so we created this tool to make it easier to create the script snippets for our customers. </p>
+		<p>Please keep in mind that this tool was made for generating schema for local stores</p>
 	</div>
 	<div class="instructions">
 		<h2>json-ld generator features</h2>
@@ -39,7 +50,7 @@
 			<li>Ability to add multiple opening hours</li>
 			<li>Ability to add multiple same-as links (social media links)</li>
 			<li>Fine tune entity type with additional type via <a href="http://www.productontology.org/">productontology.org</a></li>
-			<li>Updated to conform to <a href="https://developers.google.com/structured-data/local-businesses/?hl=en">google's new json-ld changes</a></li>
+			<li>Updated to conform to <a href="https://developers.google.com/structured-data/local-businesses/?hl=en">google's new json-ld local entity changes</a></li>
 		</ul>
 	</div>
 
@@ -57,6 +68,8 @@
 		<input type="text" id="email" name="email" placeholder="email">
 		<input type="text" id="url" name="url" placeholder="url">
 		<input type="text" id="logo" name="logo" placeholder="logo url">
+		<input type="text" id="image" name="image" placeholder="image url">
+		<input type="text" id="priceRange" name="priceRange" placeholder="price range e.g. $40 - 60">
 
 		<textarea id="description" name="description" placeholder="description"></textarea>
 		<input type="text" id="additional" name="additional" placeholder="additional type e.g. http://www.productontology.org/id/Flooring" value="http://www.productontology.org/id/Flooring">
@@ -100,7 +113,12 @@
 	</div>
 </div>
 <span>validate the code at google's tool <a href="https://developers.google.com/structured-data/testing-tool" target="_blank">http://developers.google.com/structured-data/testing-tool/</a></span>
-
+<h2>other similar json-ld generator tools</h2>
+<ul>
+	<li><a href="https://www.jamesdflynn.com/development/json-ld-markup-generator/">Multiple entity json-ld generator by James Flynn</a></li>
+	<li><a href="http://json-ld.org/playground/">Json-ld playground</a></li>
+	<li><a href="http://www.whitespark.ca/blog/post/62-the-json-ld-markup-guide-to-local-business-schema">Local SEO Json-Ld Guide</a></li>
+</ul>
 <span class="footer">created by <a class="nodecoration" href="http://www.niumata.com">Johnny Niumata</a> at <a href="http://www.floorforce.com">Floorforce A digital agency for the flooring industry</a></span>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

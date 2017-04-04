@@ -9,7 +9,7 @@ $quotes = "\"";
 $quotesComma = "\",";
 $jsonString = "";
 
-$additionalType = $_GET["additional"];
+$orgType = $_GET["orgType"];
 $url = $_GET["url"];
 $logo = $_GET["logo"];
 $image = $_GET["image"];
@@ -148,8 +148,7 @@ $hoursString .= "]";
 
 $jsonString .= "{" . PHP_EOL;
 $jsonString .= "  \"@context\": \"http://schema.org\"," . PHP_EOL;
-$jsonString .= "  \"@type\": \"Store\",". PHP_EOL;
-$jsonString .= "  \"additionalType\": \"" . $additionalType ."\",". PHP_EOL;
+$jsonString .= "  \"@type\": \"" . preg_replace('/\s+/', '', $orgType) ."\",". PHP_EOL;
 $jsonString .= "  \"url\": ". $quotes . $url .$quotesComma. PHP_EOL;
 $jsonString .= "  \"logo\": " . $quotes . $logo .$quotesComma. PHP_EOL;
 $jsonString .= "  \"image\": " . $quotes . $image .$quotesComma. PHP_EOL;

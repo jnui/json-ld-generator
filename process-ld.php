@@ -12,6 +12,8 @@ $jsonString = "";
 $additionalType = $_GET["additional"];
 $url = $_GET["url"];
 $logo = $_GET["logo"];
+$image = $_GET["image"];
+$priceRange = $_GET["priceRange"];
 $email = $_GET["email"];
 $locality = $_GET["city"];
 $region = $_GET["state"];
@@ -150,6 +152,8 @@ $jsonString .= "  \"@type\": \"Store\",". PHP_EOL;
 $jsonString .= "  \"additionalType\": \"" . $additionalType ."\",". PHP_EOL;
 $jsonString .= "  \"url\": ". $quotes . $url .$quotesComma. PHP_EOL;
 $jsonString .= "  \"logo\": " . $quotes . $logo .$quotesComma. PHP_EOL;
+$jsonString .= "  \"image\": " . $quotes . $image .$quotesComma. PHP_EOL;
+$jsonString .= "  \"priceRange\": " . $quotes . $priceRange .$quotesComma. PHP_EOL;
 $jsonString .= "  \"hasMap\": ". $quotes . $hasmap .$quotesComma. PHP_EOL;
 $jsonString .= "  \"email\": ". $quotes . $email .$quotesComma. PHP_EOL;
 $jsonString .= "  \"address\": {".  PHP_EOL;
@@ -169,8 +173,9 @@ $jsonString .= "      \"@type\": \"GeoCoordinates\",". PHP_EOL;
 $jsonString .= "      \"latitude\": ". $quotes . $lat .$quotesComma. PHP_EOL;
 $jsonString .= "      \"longitude\": ". $quotes . $long .$quotes. PHP_EOL;
 $jsonString .= "    }". $sameAsComma . PHP_EOL;
-$jsonString .= "  \"sameAs\" : [ ". $sameAsString . "]". PHP_EOL;
-
+if($hasSameAsLinks) {
+	$jsonString .= "  \"sameAs\" : [ ". $sameAsString . "]". PHP_EOL;
+}
 
 $jsonString .= "}" . PHP_EOL;
 
